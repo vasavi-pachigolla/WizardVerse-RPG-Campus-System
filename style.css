@@ -1,0 +1,315 @@
+/* Core Viewport Settings */
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #0b0b16; /* Fallback dark theme */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Interaction Popups (Optimized Textures) */
+#message {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(20, 20, 40, 0.95);
+    color: #ffd700; /* Rich gold color */
+    padding: 15px 30px;
+    border: 2px solid #ffd700;
+    border-radius: 15px;
+    font-size: 24px;
+    text-align: center;
+    display: none;
+    z-index: 500;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    pointer-events: none; /* Prevents blocking clicks if player is under it */
+}
+
+/* FIX: Absolute Bound Campus Map Map Container */
+#gameArea {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("./assets/maps/campus-map.jpg");
+    /* This completely distributes the picture across the whole screen */
+    background-size: 100% 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+#certificate{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.85);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:1000;
+}
+
+.certificate-box{
+
+    width:800px;
+    max-width:90%;
+
+    padding:40px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff8dc,
+        #f5deb3
+    );
+
+    border:12px solid gold;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 0 40px gold,
+    0 0 80px rgba(255,215,0,0.4);
+
+    color:#2c1810;
+}
+
+.certificate-box h1{
+
+    font-size:42px;
+
+    color:#8b4513;
+
+    margin-bottom:10px;
+}
+
+.certificate-box h2{
+
+    font-size:34px;
+
+    color:#b8860b;
+
+    margin-bottom:30px;
+}
+
+.award-text{
+
+    font-size:20px;
+
+    margin:15px 0;
+}
+
+#studentName{
+
+    font-size:38px;
+
+    color:#4b0082;
+
+    margin:20px 0;
+
+    text-decoration:underline;
+}
+
+.completion{
+
+    margin-top:25px;
+
+    font-size:24px;
+
+    font-weight:bold;
+
+    color:#006400;
+}
+
+.seal{
+
+    margin-top:35px;
+
+    font-size:24px;
+
+    color:#8b0000;
+}
+
+#downloadBtn,
+#closeCertificate{
+
+    margin-top:30px;
+
+    margin-right:10px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+#downloadBtn{
+
+    background:gold;
+}
+
+#closeCertificate{
+
+    background:#444;
+    color:white;
+}
+
+/* Player Sprite Engine Positioning */
+#player {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    /* Starting layout defaults matched to JS engine */
+    left: 300px; 
+    top: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.7));
+    /* Smooth transitions prevent jerky step ticks */
+    transition: left 0.05s linear, top 0.05s linear; 
+    z-index: 10px;
+}
+
+/* Intro UI Mask overlay Screen Layout */
+#startScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 20, 0.98);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#startScreen h1 {
+    font-size: 60px;
+    color: #ffd700;
+    margin-bottom: 5px;
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+#startScreen p {
+    font-size: 20px;
+    color: #a0a0c0;
+    margin-bottom: 30px;
+}
+
+#startBtn {
+    padding: 15px 40px;
+    font-size: 24px;
+    border: 2px solid #ffd700;
+    border-radius: 15px;
+    background: #ffd700;
+    color: #0a0a14;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#startBtn:hover {
+    background: transparent;
+    color: #ffd700;
+    box-shadow: 0 0 15px #ffd700;
+}
+
+/* Floating Menu Layout Element Anchor toggles */
+#menuBtn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid #444;
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 200;
+    transition: background 0.2s;
+}
+
+#menuBtn:hover {
+    background: rgba(40, 40, 60, 0.9);
+}
+
+/* Active Tracker Panel Lists Styles */
+#questPanel {
+    position: absolute;
+    top: 75px;
+    left: 15px;
+    width: 260px;
+    background: rgba(10, 10, 20, 0.95);
+    border: 2px solid #333;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: none;
+    z-index: 200;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+#questPanel h3 {
+    margin-top: 0;
+    color: #ffd700;
+    border-bottom: 1px solid #333;
+    padding-bottom: 8px;
+}
+
+#questPanel ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+#questPanel li {
+    padding: 6px 0;
+    font-size: 16px;
+    color: #d0d0e0;
+}
+#housePointsDisplay{
+
+    position:absolute;
+
+    top:20px;
+    right:20px;
+
+    background:rgba(0,0,0,0.8);
+
+    color:gold;
+
+    padding:12px 20px;
+
+    border:2px solid gold;
+
+    border-radius:12px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    z-index:999;
+}
