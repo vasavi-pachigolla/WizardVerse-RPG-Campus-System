@@ -116,7 +116,7 @@ style.css
 
 ## 👨‍💻 Author
 
-Created as a **student project** to demonstrate:
+P . VASAVI
 
 - Web development skills  
 - Game design thinking  
